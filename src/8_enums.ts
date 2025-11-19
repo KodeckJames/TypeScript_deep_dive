@@ -36,6 +36,10 @@ enum StatusCodes3 {
 console.log(StatusCodes3.NotFound);
 // logs 200
 console.log(StatusCodes3.Success);
+// Reverse mapping:
+// logs Accepted
+console.log((StatusCodes3[202]));
+
 
 // String Enums
 // Enums can also contain strings.
