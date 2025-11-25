@@ -27,3 +27,22 @@ class NamedValue<T>{
 }
 let value = new NamedValue<number>("Yellow");
 console.log(value.toString());
+
+// In type Aliases
+type Wrapped<Y> = { name: Y };
+const wrappedColor: Wrapped<string> = { name: "yellow" };
+console.log(wrappedColor);
+// This also works with interfaces:
+interface WrappedLite<T,X,Y>{
+    name: T,
+    brightness: X,
+    intensity: Y
+}
+
+const wrappedColorLite: WrappedLite<string, string, number> = {
+    name: "Purple",
+    brightness: "Medium",
+    intensity:7
+}
+console.log(wrappedColorLite);
+
