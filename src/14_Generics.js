@@ -22,3 +22,38 @@ var NamedValue = /** @class */ (function () {
 }());
 var value = new NamedValue("Yellow");
 console.log(value.toString());
+var wrappedColor = { name: "yellow" };
+console.log(wrappedColor);
+var wrappedColorLite = {
+    name: "Purple",
+    brightness: "Medium",
+    intensity: 7
+};
+console.log(wrappedColorLite);
+// Default value
+// Generics can be assigned default values which apply if no other value is specified or inferred.
+var NamedValueLite = /** @class */ (function () {
+    function NamedValueLite(name) {
+        this.name = name;
+    }
+    NamedValueLite.prototype.setValue = function (value) {
+        this._value = value;
+    };
+    NamedValueLite.prototype.getValue = function () {
+        return this._value;
+    };
+    NamedValueLite.prototype.toString = function () {
+        return "".concat(this.name, ": ").concat(this._value);
+    };
+    return NamedValueLite;
+}());
+var valueLite = new NamedValue('myNumber');
+value.SetValue('myValue');
+console.log(valueLite.toString()); // myNumber: myValue
+// Extends
+// Constraints can be added to generics to limit what's allowed.
+// The constraints make it possible to rely on a more specific type when using the generic type.
+var constrainedFunction = function (yellow, pink) {
+    return "Hello ".concat(yellow, " ").concat(pink);
+};
+console.log(constrainedFunction("Jlow", 5));

@@ -46,3 +46,35 @@ const wrappedColorLite: WrappedLite<string, string, number> = {
 }
 console.log(wrappedColorLite);
 
+// Default value
+// Generics can be assigned default values which apply if no other value is specified or inferred.
+class NamedValueLite<T = string> {
+  private _value: T | undefined;
+
+  constructor(private name: string) {}
+
+  public setValue(value: T) {
+    this._value = value;
+  }
+
+  public getValue(): T | undefined {
+    return this._value;
+  }
+
+  public toString(): string {
+    return `${this.name}: ${this._value}`;
+  }
+}
+
+let valueLite = new NamedValue('myNumber');
+value.SetValue('myValue');
+console.log(valueLite.toString()); // myNumber: myValue
+
+// Extends
+// Constraints can be added to generics to limit what's allowed.
+
+// The constraints make it possible to rely on a more specific type when using the generic type.
+const constrainedFunction=<S extends string | number, T extends boolean | number > (yellow:S, pink:T ) => {
+    return `Hello ${yellow} ${pink}`
+}
+console.log(constrainedFunction("Jlow", 5));
