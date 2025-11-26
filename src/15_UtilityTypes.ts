@@ -8,6 +8,8 @@ interface Point{
 // Partial allows x and y to be optional
 const pointOne: Partial<Point> = {};
 pointOne.x = 5;
+console.log(pointOne);
+
 
 // 2. Required
 // Required changes all properties to be required
@@ -93,3 +95,19 @@ const pointExtracted: Parameters<ParamExtractor>[0] = {
     y: 6
 }
 console.log(JSON.stringify(pointExtracted))
+
+// Readonly
+// Readonly is used to create a new type where all properties are readonly, meaning they cannot be modified once assigned a value
+// Keep in mind TS will prevent this at compile time, but in theory since it is compiled down to JS, you can still override a readonly property.
+type Foods = {
+    name: string,
+    quantity: number,
+    isRipe: boolean
+}
+
+const foodOne: Readonly<Foods> = {
+    name: "Chapati",
+    quantity: 90,
+    isRipe:true
+}
+console.log(JSON.stringify(foodOne));

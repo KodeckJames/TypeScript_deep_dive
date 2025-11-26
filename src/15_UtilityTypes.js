@@ -1,6 +1,7 @@
 // Partial allows x and y to be optional
 var pointOne = {};
 pointOne.x = 5;
+console.log(pointOne);
 var pointReqOne = {
     a: true,
     b: "Yellow"
@@ -43,3 +44,9 @@ var pointExtracted = {
     y: 6
 };
 console.log(JSON.stringify(pointExtracted));
+var foodOne = {
+    name: "Chapati",
+    quantity: 90,
+    isRipe: true
+};
+console.log(JSON.stringify(foodOne));
