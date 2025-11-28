@@ -6,6 +6,7 @@ interface Person {
 }
 type PersonKeys = 'name' | 'age' //This is how TS translates keyof Person i.e.; a union of string literals representing those keys.
 
+// keyof with explicit keys
 const printPersonProperty = (person: Person, property: keyof Person) => {
   property == 'name'
     ? console.log(`Printing person property ${property}: "${person[property]}"`)
@@ -17,3 +18,14 @@ let person = {
 }
 printPersonProperty(person, 'name')
 printPersonProperty(person, 'age')
+
+// keyof with index signatures
+// The concept of using [property] is called index signature
+type StringMap = { [key: string]: unknown }
+const createStringMap = (
+  property: keyof StringMap,
+  value: string
+): StringMap => {
+  return { [property]: value }
+}
+console.log(createStringMap('Color', 'Yellow'))

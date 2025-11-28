@@ -9,3 +9,8 @@ var person = {
 };
 printPersonProperty(person, 'name');
 printPersonProperty(person, 'age');
+var createStringMap = function (property, value) {
+    var _a;
+    return _a = {}, _a[property] = value, _a;
+};
+console.log(createStringMap("Color", "Yellow"));
