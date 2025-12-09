@@ -16,10 +16,19 @@ var home = {
     },
 };
 printYardSize(home);
-// Nullish Coalescing
+//3. Nullish Coalescing
 // Nullish Coalescing allows writing expressions that have a fallback specifically when dealing with null or undefined
 var printMileage = function (mileage) {
     console.log("Total mileage is ".concat(mileage !== null && mileage !== void 0 ? mileage : 'Not Available', " "));
 };
 printMileage(null);
 printMileage(0);
+//4. Null Assertion
+// TS's inference system isn't perfect, there are times when it makes sense to ignore a value's possibility of being null or undefined
+// An easy way to do this is to use casting, but TS also provides the ! operator as a convenient shortcut.
+var getValue = function () {
+    return "Hello";
+};
+var value2 = getValue();
+console.log("Value length: ".concat(value2.length));
+// Just like casting, this can be unsafe and should be handled with care
