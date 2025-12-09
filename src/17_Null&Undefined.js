@@ -32,3 +32,9 @@ var getValue = function () {
 var value2 = getValue();
 console.log("Value length: ".concat(value2.length));
 // Just like casting, this can be unsafe and should be handled with care
+// 5. Array bounds handling
+// Even with strictNullChecks enabled, by default TypeScript assumes array access will never return undefined (unless undefined is part of the array type).
+// The config noUncheckedIndexedAccess can be used to change this behavior.
+var array = [1, 2, 3, 4];
+var value3 = array[0];
+console.log(value3); // with `noUncheckedIndexedAccess` this has the type `number | undefined`
