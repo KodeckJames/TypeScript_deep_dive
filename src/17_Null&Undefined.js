@@ -12,7 +12,14 @@ var printYardSize = function (house) {
 var home = {
     sqft: 700,
     yard: {
-        sqft: 700
-    }
+        sqft: 700,
+    },
 };
 printYardSize(home);
+// Nullish Coalescing
+// Nullish Coalescing allows writing expressions that have a fallback specifically when dealing with null or undefined
+var printMileage = function (mileage) {
+    console.log("Total mileage is ".concat(mileage !== null && mileage !== void 0 ? mileage : 'Not Available', " "));
+};
+printMileage(null);
+printMileage(0);
