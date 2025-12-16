@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 // Component Typing
 
@@ -88,3 +88,10 @@ const useStateHook = () => {
 }
 console.log(useStateHook);
 
+// useRef with DOM Elements
+// Type refs to DOM nodes to access properties safely:
+function FocusInput() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  return <input ref={inputRef} onFocus={() => inputRef.current?.select()} />;
+}
+console.log(FocusInput);
