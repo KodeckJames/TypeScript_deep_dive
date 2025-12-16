@@ -118,3 +118,22 @@ const fetchJson = async <T,>(url: string): Promise<T> => {
     return res.json() as Promise<T>
 }
 console.log(fetchJson);
+
+// Minimal Context and Custom Hook
+// Provide a small, typed context and a helper hook:
+type Theme = 'light' | 'dark';
+const ThemeContext = React.createContext<{ theme: Theme; toggle(): void } | null>(null);
+
+function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = React.useState<Theme>('light');
+  const value = { theme, toggle: () => setTheme(t => (t === 'light' ? 'dark' : 'light')) };
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+}
+
+function useTheme() {
+  const ctx = React.useContext(ThemeContext);
+  if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
+  return ctx;
+}
+console.log(ThemeProvider);
+console.log(useTheme);
