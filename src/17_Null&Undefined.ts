@@ -32,26 +32,33 @@ printYardSize(home)
 
 //3. Nullish Coalescing
 // Nullish Coalescing allows writing expressions that have a fallback specifically when dealing with null or undefined
+// This returns the right-hand side only if the left-hand side is null or undefined
 const printMileage = (mileage: number | null | undefined) => {
   console.log(`Total mileage is ${mileage ?? 'Not Available'} `)
 }
-printMileage(null);
-printMileage(0);
+printMileage(null)
+printMileage(0)
+// Only defaults to 'dark' if theme is explicitly null or undefined.
+// If theme is 0 or "", it keeps those values.
+const userSettings = {
+  theme: 'light',
+}
+const userTheme = userSettings.theme ?? 'dark' // This simply means, set the userTheme to userSettings.theme. If it is null or undefined, set it to dark
 
 //4. Null Assertion
 // TS's inference system isn't perfect, there are times when it makes sense to ignore a value's possibility of being null or undefined
 // An easy way to do this is to use casting, but TS also provides the ! operator as a convenient shortcut.
-const getValue = (): string | undefined =>{
-    return "Hello";
+const getValue = (): string | undefined => {
+  return 'Hello'
 }
-let value2= getValue();
-console.log(`Value length: ${value2!.length}`);
+let value2 = getValue()
+console.log(`Value length: ${value2!.length}`)
 
 // Just like casting, this can be unsafe and should be handled with care
 
 // 5. Array bounds handling
 // Even with strictNullChecks enabled, by default TypeScript assumes array access will never return undefined (unless undefined is part of the array type).
 // The config noUncheckedIndexedAccess can be used to change this behavior.
-let array: number[] = [1, 2, 3, 4];
-let value3 = array[0];
-console.log(value3); // with `noUncheckedIndexedAccess` this has the type `number | undefined`
+let array: number[] = [1, 2, 3, 4]
+let value3 = array[0]
+console.log(value3) // with `noUncheckedIndexedAccess` this has the type `number | undefined`

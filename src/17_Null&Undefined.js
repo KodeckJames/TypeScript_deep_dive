@@ -1,4 +1,5 @@
 // By default, null and undefined handling is disabled, and can be enabled by setting strictNullChecks to true
+var _a;
 var value = null;
 value = 'Yellow! We are back like we never left';
 value = undefined;
@@ -18,16 +19,23 @@ var home = {
 printYardSize(home);
 //3. Nullish Coalescing
 // Nullish Coalescing allows writing expressions that have a fallback specifically when dealing with null or undefined
+// This returns the right-hand side only if the left-hand side is null or undefined
 var printMileage = function (mileage) {
     console.log("Total mileage is ".concat(mileage !== null && mileage !== void 0 ? mileage : 'Not Available', " "));
 };
 printMileage(null);
 printMileage(0);
+// Only defaults to 'dark' if theme is explicitly null or undefined.
+// If theme is 0 or "", it keeps those values.
+var userSettings = {
+    theme: 'light',
+};
+var userTheme = (_a = userSettings.theme) !== null && _a !== void 0 ? _a : 'dark'; // This simply means, set the userTheme to userSettings.theme. If it is null or undefined, set it to dark
 //4. Null Assertion
 // TS's inference system isn't perfect, there are times when it makes sense to ignore a value's possibility of being null or undefined
 // An easy way to do this is to use casting, but TS also provides the ! operator as a convenient shortcut.
 var getValue = function () {
-    return "Hello";
+    return 'Hello';
 };
 var value2 = getValue();
 console.log("Value length: ".concat(value2.length));
