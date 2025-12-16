@@ -109,3 +109,12 @@ const Card = ({ title, children }: ComponentProps) => {
   )
 }
 console.log(Card);
+
+// Fetch Helpers with Generics
+// Use generics to type API responses
+const fetchJson = async <T,>(url: string): Promise<T> => {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Network error');
+    return res.json() as Promise<T>
+}
+console.log(fetchJson);
