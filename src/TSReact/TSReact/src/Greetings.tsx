@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 
 // Component Typing
 
@@ -86,12 +86,26 @@ const useStateHook = () => {
     </div>
   )
 }
-console.log(useStateHook);
+console.log(useStateHook)
 
 // useRef with DOM Elements
 // Type refs to DOM nodes to access properties safely:
 function FocusInput() {
-  const inputRef = useRef<HTMLInputElement>(null);
-  return <input ref={inputRef} onFocus={() => inputRef.current?.select()} />;
+  const inputRef = useRef<HTMLInputElement>(null)
+  return <input ref={inputRef} onFocus={() => inputRef.current?.select()} />
 }
-console.log(FocusInput);
+console.log(FocusInput)
+
+// Children Typing
+// Accept children with the React.ReactNode type:
+// NB: There is also the React.ReactElement that specifically renders a JSX Element only e.g. div, p, h1 etc.
+type ComponentProps = { title: string; children: React.ReactNode }
+const Card = ({ title, children }: ComponentProps) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <div>{children}</div>
+    </div>
+  )
+}
+console.log(Card);
