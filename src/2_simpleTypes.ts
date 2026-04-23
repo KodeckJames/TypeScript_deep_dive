@@ -17,6 +17,7 @@ let sentence: string = `Hello, my name is ${fullName} and I'll be ${age + 1} nex
 
 // 4. BigInt (ES2020+)
 // Represents whole numbers larger than 253 - 1.
+// You can use bigInt with any number but mostly after 9007199254740991, since Beyond this, normal number may lose precision.
 // Use the n suffix to create a bigint.
 const bigNumber: bigint = 9007199254740991n;
 const hugeNumber = BigInt(9007199254740991); // Alternative syntax
