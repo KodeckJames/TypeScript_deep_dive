@@ -77,6 +77,7 @@ interface User{
 // Nullish coalescing (??) - It gives a default value only if the left side is null or undefined.
 // const username = null;
 // console.log(username ?? "Guest");
+// Example explanation (my thinking) = username exists? If yes, return username, if no, return Guest
 // ✅ Output:
 // Guest
 // Meaning:
