@@ -74,8 +74,19 @@ interface User{
 }
 
 // Nullish Coalescing and Optional Chaining
-// Nullish coalescing (??) - only uses default if value is null or undefined
-// const value = input ?? 'default';
+// Nullish coalescing (??) - It gives a default value only if the left side is null or undefined.
+// const username = null;
+// console.log(username ?? "Guest");
+// ✅ Output:
+// Guest
+// Meaning:
+// “If username is null/undefined, use Guest.”
 
-// Optional chaining (?.) - safely access nested properties
-// const street = user?.address?.street;
+// Optional chaining (?.) - It lets you safely access a property without causing an error if something is null or undefined.
+// const user = {
+//   profile: {
+//     email: "test@gmail.com"
+//   }
+// };
+
+// console.log(user?.profile?.email);
